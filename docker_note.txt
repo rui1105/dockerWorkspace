@@ -1,0 +1,15 @@
+login Mariadb:
+
+sudo docker images
+
+mkdir -p /home/rui/data/mariadb/data
+
+sudo docker run --name mariadb -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 -v /home/rui/data/mariadb/data/:/var/lib/mysql -d mariadb
+
+sudo docker ps -a
+
+sudo docker container update --restart=always 5b446c74899b(id)
+
+sudo docker exec -it 5b446c74899b(id) bash
+
+mysql -uroot -p123456
