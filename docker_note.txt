@@ -13,3 +13,33 @@ sudo docker container update --restart=always 5b446c74899b(id)
 sudo docker exec -it 5b446c74899b(id) bash
 
 mysql -uroot -p123456
+
+Some problem:
+When Spring Boot program in Idea connects MariaDB in Docker, it fails always.
+Why? Because of the ide of Idea intellij.
+How? In pom.xml, we offer something important like label '<resources></resources>' in label '<build></build>'.
+<code>
+    <build>
+        <resources>
+            <resource>
+                <directory>java/main/src</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+
+            <resource>
+                <directory>java/main/resources</directory>
+                <includes>
+                    <include>**/*.yml</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+</code>
