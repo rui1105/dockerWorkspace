@@ -1,0 +1,14 @@
+Net:
+enable: sudo ufw enable
+open: sudo ufw allow 8080
+reload: sudo ufw reload
+
+check: ifconfig (net-tools)
+
+get: curl url
+
+git command:
+git status
+git add .
+git commit -m 'xxxx'
+git push origin master
